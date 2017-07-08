@@ -6,7 +6,10 @@ The official client for `Seashells.io <https://seashells.io>`__.
 Installation
 ------------
 
-Seashells uses Python 3. You can install Seashells from
+Seashells is compatible with both Python 2 and Python 3. It's recommended that
+you use Python 3.
+
+You can install Seashells from
 `PyPI <https://pypi.python.org/pypi/seashells/>`__:
 
 .. code:: bash

@@ -49,9 +49,32 @@ def make_parser():
             help='delay before starting to send data')
     return parser
 
+def read1(stream):
+    if hasattr(stream, 'read1'):
+        return stream.read1(READ_BUFFER_SIZE)
+    else:
+        # XXX is there a better way to do this without doing a bunch of syscalls?
+        buf = []
+        while len(buf) < READ_BUFFER_SIZE:
+            ready, _, _ = select.select([stream], [], [], 0) # poll
+            if not ready:
+                break
+            data = stream.read(1)
+            if not data:
+                # even if we hit this case, it's fine: once we get to EOF, the
+                # fd is always ready (and will always return "")
+                break
+            buf.append(data)
+        return ''.join(buf)
 
 def main():
-    source = sys.stdin.buffer
+    if hasattr(sys.stdin, 'buffer'):
+        stdin = sys.stdin.buffer
+    else:
+        stdin = os.fdopen(sys.stdin.fileno(), 'r', 0)
+    stdout = sys.stdout.buffer if hasattr(sys.stdout, 'buffer') else sys.stdout
+    stderr = sys.stderr.buffer if hasattr(sys.stderr, 'buffer') else sys.stderr
+
     try:
         parser = make_parser()
         args = parser.parse_args()
@@ -63,44 +86,44 @@ def main():
         # get URL from server first
         conn.settimeout(SOCKET_TIMEOUT)
         data = conn.recv(RECV_BUFFER_SIZE)
-        sys.stderr.buffer.write(data)
-        sys.stderr.flush()
+        stderr.write(data)
+        stderr.flush()
 
         time.sleep(args.delay)
 
         # pipe data from stdin to server
         while True:
-            ready, _, _ = select.select([conn, source], [], [])
+            ready, _, _ = select.select([conn, stdin], [], [])
             if conn in ready:
                 conn.settimeout(SOCKET_TIMEOUT)
                 data = conn.recv(RECV_BUFFER_SIZE)
-                sys.stderr.buffer.write(data)
-                sys.stderr.flush()
-            elif source in ready:
-                inp = source.read1(READ_BUFFER_SIZE)
+                stderr.write(data)
+                stderr.flush()
+            elif stdin in ready:
+                inp = read1(stdin)
                 if len(inp) == 0:
                     # EOF
                     break
                 conn.sendall(inp)
                 if not args.quiet:
-                    sys.stdout.buffer.write(inp)
-                    sys.stdout.flush()
+                    stdout.write(inp)
+                    stdout.flush()
     except KeyboardInterrupt:
         # exit silently with an error code
         exit(1)
     except socket.error as e:
-        sys.stderr.write('socket error: %s\n' % e)
-        sys.stderr.flush()
+        stderr.write('socket error: %s\n' % e)
+        stderr.flush()
         # continue running
         while True:
             try:
-                inp = source.read1(READ_BUFFER_SIZE)
+                inp = read1(source)
                 if len(inp) == 0:
                     # EOF
                     break
                 if not args.quiet:
-                    sys.stdout.buffer.write(inp)
-                    sys.stdout.flush()
+                    stdout.write(inp)
+                    stdout.flush()
             except KeyboardInterrupt:
                 exit(1)
 
