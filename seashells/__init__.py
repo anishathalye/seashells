@@ -27,7 +27,7 @@ import os
 import select
 import time
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 
 SERVER_IP = 'seashells.io'
