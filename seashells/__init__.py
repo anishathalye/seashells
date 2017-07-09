@@ -112,12 +112,12 @@ def main():
         # exit silently with an error code
         exit(1)
     except socket.error as e:
-        stderr.write('socket error: %s\n' % e)
+        stderr.write(('socket error: %s\n' % e).encode('utf8'))
         stderr.flush()
         # continue running
         while True:
             try:
-                inp = read1(source)
+                inp = read1(stdin)
                 if len(inp) == 0:
                     # EOF
                     break
