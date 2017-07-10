@@ -1,0 +1,22 @@
+name: seashells
+version: git
+summary: The official client for Seashells.io
+description: |
+  Seashells lets you pipe output from command-line programs to the web in
+  real-time, even without installing any new software on your machine. You
+  can use it to monitor long-running processes like experiments that print
+  progress to the console. You can also use Seashells to share output with
+  friends!
+
+grade: stable
+confinement: strict
+
+apps:
+  seashells:
+    command: seashells
+    plugs: [network]
+
+parts:
+  seashells:
+    plugin: python
+    source: .
