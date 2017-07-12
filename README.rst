@@ -27,6 +27,13 @@ line tool itself, see the built-in help:
 
     seashells --help
 
+Other Clients
+-------------
+
+- `roccomuso/seashells <https://github.com/roccomuso/seashells>`__ (Node.js)
+
+Note: other clients are not officially supported.
+
 Packaging
 ---------
 
