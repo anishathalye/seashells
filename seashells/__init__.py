@@ -43,7 +43,7 @@ def make_parser():
             help='disable stdin passthrough')
     parser.add_argument('-i', '--ip', default=SERVER_IP,
             help='server IP address')
-    parser.add_argument('-p', '--port', default=SERVER_PORT,
+    parser.add_argument('-p', '--port', type=int, default=SERVER_PORT,
             help='server port')
     parser.add_argument('-d', '--delay', type=float, default=0,
             help='delay before starting to send data')
