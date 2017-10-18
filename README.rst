@@ -31,6 +31,7 @@ Other Clients
 -------------
 
 - `roccomuso/seashells <https://github.com/roccomuso/seashells>`__ (Node.js)
+- `hans-strudle/seashells <https://github.com/hans-strudle/seashells>`__ (Go)
 
 Note: other clients are not officially supported.
 
