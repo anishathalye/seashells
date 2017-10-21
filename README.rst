@@ -16,6 +16,14 @@ You can install Seashells from
 
     pip install seashells
 
+Seashells is also available as a snap package, installable on `supported
+<https://snapcraft.io/docs/core/install>`__ systems. These packages are
+securely confined and automatically updated.
+
+.. code:: bash
+
+    snap install seashells
+
 Usage
 -----
 
