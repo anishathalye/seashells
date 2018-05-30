@@ -10,7 +10,7 @@ Seashells is compatible with both Python 2 and Python 3. It's recommended that
 you use Python 3.
 
 You can install Seashells from
-`PyPI <https://pypi.python.org/pypi/seashells/>`__:
+`PyPI <https://pypi.org/project/seashells/>`__:
 
 .. code:: bash
 
