@@ -27,6 +27,19 @@ line tool itself, see the built-in help:
 
     seashells --help
 
+Tips and Tricks
+~~~~~~~~~~~~~~~
+
+- To easily pipe both stdout and stderr to seashells, you can set up a shell
+  function (`source
+  <https://github.com/anishathalye/seashells/issues/14#issuecomment-409167113>`__):
+
+  .. code:: bash
+
+     function sea() {
+         $* 2>&1 | seashells
+     }
+
 Other Clients
 -------------
 
