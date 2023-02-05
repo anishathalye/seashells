@@ -1,7 +1,13 @@
 Seashells
 =========
 
-The official client for `Seashells.io <https://seashells.io>`__.
+The official client for `seashells.io <https://seashells.io>`__.
+
+The server code is available at `anishathalye/seashells-server
+<https://github.com/anishathalye/seashells-server>`__.
+
+For more information, see `seashells.io <https://seashells.io>`__ or the
+`launch blog post <https://www.anishathalye.com/2017/07/10/seashells/>`__.
 
 Installation
 ------------
@@ -19,7 +25,7 @@ You can install Seashells from
 Usage
 -----
 
-See the instructions on `Seashells.io <https://seashells.io>`__ for more
+See the instructions on `seashells.io <https://seashells.io>`__ for more
 information about Seashells. For more information on how to use the command
 line tool itself, see the built-in help:
 
