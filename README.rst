@@ -57,5 +57,5 @@ Note: other clients are not officially supported.
 License
 -------
 
-Copyright (c) 2018 Anish Athalye. Released under the MIT License. See
+Copyright (c) Anish Athalye. Released under the MIT License. See
 `LICENSE.rst <LICENSE.rst>`__ for details.
