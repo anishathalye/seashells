@@ -32,8 +32,3 @@ issues = "https://github.com/anishathalye/seashells/issues"
 
 [tool.hatch.version]
 path = "src/seashells/__init__.py"
-
-[tool.ruff.lint]
-ignore = [
-  "FA100",
-]
