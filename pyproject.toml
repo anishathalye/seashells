@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "seashells"
+authors = [
+  { name = "Anish Athalye", email = "me@anishathalye.com" },
+]
+description = "The official client for Seashells.io"
+readme = "README.md"
+requires-python = ">=2.7"
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 2",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Version Control",
+  "Topic :: Utilities",
+]
+keywords = ["shell", "seashells", "seashells.io"]
+dynamic = ["version"]
+
+[project.scripts]
+seashells = "seashells.cli:main"
+
+[project.urls]
+homepage = "https://github.com/anishathalye/seashells"
+repository = "https://github.com/anishathalye/seashells.git"
+issues = "https://github.com/anishathalye/seashells/issues"
+
+[tool.hatch.version]
+path = "src/seashells/__init__.py"
+
+[tool.ruff.lint]
+ignore = [
+  "FA100",
+]
