@@ -1,4 +1,4 @@
-# Seashells [![Build Status](https://github.com/anishathalye/seashells/workflows/CI/badge.svg)](https://github.com/anishathalye/seashells/actions?query=workflow%3ACI) [![PyPI](https://img.shields.io/pypi/v/seashells.svg)](https://pypi.org/pypi/seashells/) [![Python 2.7+](https://img.shields.io/badge/python-2.7%2B-blue)](https://pypi.org/pypi/seashells/)
+# Seashells [![Build Status](https://github.com/anishathalye/seashells/workflows/CI/badge.svg)](https://github.com/anishathalye/seashells/actions?query=workflow%3ACI) [![PyPI](https://img.shields.io/pypi/v/seashells.svg)](https://pypi.org/pypi/seashells/) [![PyPI - Python version](https://img.shields.io/pypi/pyversions/seashells.svg)](https://pypi.org/pypi/seashells/)
 
 The official client for [seashells.io](https://seashells.io).
 
