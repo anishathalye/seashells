@@ -31,3 +31,6 @@ issues = "https://github.com/anishathalye/seashells/issues"
 
 [tool.hatch.version]
 path = "src/seashells/__init__.py"
+
+[tool.hatch.envs.default]
+installer = "uv"
