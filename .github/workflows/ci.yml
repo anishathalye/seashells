@@ -6,12 +6,16 @@ on:
     - cron: '0 8 * * 6'
 jobs:
   fmt:
-    name: Format and lint
+    name: Format
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
+      - uses: actions/checkout@v7
       - uses: pypa/hatch@install
-      - run: hatch fmt --check
+      - run: hatch check fmt
+  lint:
+    name: Lint
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pypa/hatch@install
+      - run: hatch check code
